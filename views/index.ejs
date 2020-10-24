@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+<body>
+  <div class="container">
+    <section class="header">
+      <h1 class="title">UrlShort()<span class="underscore blink">_</span></h1>
+      <p>A simple URL shortener.</p>
+    </section>
+    
+    <form action="/api/shortUrl" method="POST" class="urlForm">
+      <div class="input_section">
+        <input type="text" name="newUrl[fullUrl]" id="fullUrl" placeholder="Insert full URL">
+        <label for="fullUrl">> </label>
+      </div>
+
+      <div class="input_section">
+        <input type="text" name="newUrl[short]" id="shorthand" placeholder="Insert desired shorthand">
+        <label for="shorthand">> </label>
+      </div>
+      
+      
+      <button type="submit" id="submitButton">ENTER</button>
+    </form>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap');
+
+
+body {
+  background-color: #141414;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* HEADER STYLES */
+
+.container {
+  color: #4AF626;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  margin-top: 20vh;
+  margin-bottom: 3vh;
+}
+
+.title {
+  font-weight: 400;
+  margin-bottom: -15px;
+}
+
+.underscore {
+  font-weight: 700;
+}
+
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+
+/* FORM STYLES */
+.urlForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+.input_section {
+  width: 100%;
+  display: flex;
+}
+
+.input_section > label {
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+input {
+  outline: none;
+  border: none;
+  background-color: inherit;
+  margin-bottom: 10px;
+  color: inherit;
+  flex: 1;
+  height: 20px;
+  order: 2;
+}
+
+input:focus ~ label {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+#submitButton {
+  margin-top: 20px;
+  background-color: inherit;
+  color: inherit;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
