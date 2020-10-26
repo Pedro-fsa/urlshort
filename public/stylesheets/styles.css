@@ -59,10 +59,29 @@ input {
   border: none;
   background-color: inherit;
   margin-bottom: 10px;
-  color: inherit;
+  color: transparent;
+  text-shadow: 0 0 0 #4AF626;
   flex: 1;
   height: 20px;
   order: 2;
+}
+
+input::-webkit-input-placeholder {
+  color: gray;
+  text-shadow: none;
+}
+
+input::-moz-placeholder { /* Firefox 19+ */
+  color: gray;
+  text-shadow: none;
+}
+input:-ms-input-placeholder { /* IE 10+ */
+  color: gray;
+  text-shadow: none;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: gray;
+  text-shadow: none;
 }
 
 input:focus ~ label {
