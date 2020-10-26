@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
 
 const UrlShort = require('../database/models/UrlShort');
 
+const redirectHome = (req, res, message) => {
+  req.session.message = message
+  res.redirect('/');
+}
 
+// Redirects to requested page or shows error message
 router.get('/:short', (req, res) => {
   if(req.params.short) {
     // console.log(`SHORT: ${req.params.short}`)
@@ -13,25 +17,19 @@ router.get('/:short', (req, res) => {
         res.redirect(foundUrl.fullUrl);
       } else {
         if (err) {
-          res.render('index', {error: 'Something went wrong.'})
+          redirectHome(req, res, 'Something went wrong.')
         } else if (foundUrl == null) {
-          res.render('index', {error: 'No such link found.'});
+          redirectHome(req, res, 'No such link found.')
         }
       }
     })
   }
 })
 
-router.get('/error/:error', (req, res) => {
-  res.render('index', {
-    error: req.params.error
-  })
-})
-
+// Root route
 router.get('/', (req, res) => {
-  res.render('index');
+  let message = req.session.message;
+  res.render('index', {message: message});
 })
-
-
 
 module.exports = router;
