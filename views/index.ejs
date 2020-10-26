@@ -14,14 +14,14 @@
       <p>A simple URL shortener.</p>
     </section>
     
-    <form action="/api/shortUrl" method="POST" class="urlForm">
+    <form autocomplete="off" action="/api/shortUrl" method="POST" class="urlForm">
       <div class="input_section">
-        <input type="text" name="newUrl[fullUrl]" id="fullUrl" placeholder="Insert full URL">
+        <input type="text" name="newUrl[fullUrl]" id="fullUrl" placeholder="Insert full URL" spellcheck="false">
         <label for="fullUrl">> </label>
       </div>
 
       <div class="input_section">
-        <input type="text" name="newUrl[short]" id="shorthand" placeholder="Insert desired shorthand">
+        <input type="text" name="newUrl[short]" id="shorthand" placeholder="Insert desired shorthand" spellcheck="false">
         <label for="shorthand">> </label>
       </div>
       
