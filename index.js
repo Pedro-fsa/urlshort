@@ -8,11 +8,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 dotenv.config();
 
-//mongodb+srv://Alacer:dc0f9bxd@urlshort.8qma7.mongodb.net/UrlShort?retryWrites=true&w=majority
-
-mongoose.set('debug', true);
+// mongoose.set('debug', true);
 mongoose
-  .connect('mongodb+srv://Alacer:dc0f9bxd@urlshort.8qma7.mongodb.net/UrlShort?retryWrites=true&w=majority', {
+  .connect(process.env.DATABASEURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
