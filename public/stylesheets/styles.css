@@ -110,6 +110,13 @@ input:focus ~ label {
   }
 }
 
+/* ERROR STYLES */
+
+.blinkShort {
+  animation: blink-animation 1s steps(5, start) 3;
+  -webkit-animation: blink-animation 1s steps(5, start) 3;
+}
+
 /* FOOTER STYLES */
 
 .footer {

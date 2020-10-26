@@ -7,17 +7,25 @@ const UrlShort = require('../database/models/UrlShort');
 
 router.get('/:short', (req, res) => {
   if(req.params.short) {
-    console.log(`SHORT: ${req.params.short}`)
+    // console.log(`SHORT: ${req.params.short}`)
     UrlShort.findOne({short: req.params.short}, (err, foundUrl) => {
-      if (err) {
-        console.log(err);
-        res.redirect('back');
-      } else {
-        console.log(foundUrl);
+      if (foundUrl) {
         res.redirect(foundUrl.fullUrl);
+      } else {
+        if (err) {
+          res.render('index', {error: 'Something went wrong.'})
+        } else if (foundUrl == null) {
+          res.render('index', {error: 'No such link found.'});
+        }
       }
     })
   }
+})
+
+router.get('/error/:error', (req, res) => {
+  res.render('index', {
+    error: req.params.error
+  })
 })
 
 router.get('/', (req, res) => {
