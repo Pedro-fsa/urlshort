@@ -7,6 +7,7 @@ const apiRoutes = require('./routes/api');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const { v4: uuidv4 } = require('uuid');
 dotenv.config();
 
 mongoose
@@ -17,7 +18,15 @@ mongoose
   .then(() => console.log(`Connected to DB.`))
   .catch((error) => console.log(error.message));
 
-app.use(session({secret: 'Thisisasimplesecret', resave: false, saveUninitialized: false, cookie: {expires: 1000}}))
+app.use(session({ 
+  genid: function(req) {
+    return uuidv4()
+  }, 
+  secret: 'Thisisasimplesecret', 
+  resave: false, 
+  saveUninitialized: false, 
+  cookie: {expires: 1000}
+}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
