@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express();
 const dotenv = require('dotenv');
-const UrlShort = require('./database/models/UrlShort');
 const indexRoutes = require('./routes/index');
 const apiRoutes = require('./routes/api');
 const mongoose = require('mongoose');
